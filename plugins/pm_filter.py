@@ -128,12 +128,12 @@ async def next_page(bot, query):
             [InlineKeyboardButton("« BACK", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"📃 Pages {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages")]
         )
     elif off_set is None:
-        btn.append([InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"), InlineKeyboardButton("NEXT »", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append([InlineKeyboardButton(f"🖨 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"), InlineKeyboardButton("NEXT »", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
                 InlineKeyboardButton("« BACK", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"),
+                InlineKeyboardButton(f"🖨 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"),
                 InlineKeyboardButton("NEXT »", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
@@ -438,13 +438,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ', url='http://t.me/dqautofl_bot?startgroup=true')
+            InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url='http://t.me/Don_movie_robot?startgroup=true')
             ],[
             InlineKeyboardButton('sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ', url='https://t.me/EDIT_REPO')
+            InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ', url='https://t.me/Tvmoviehere')
             ],[
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
+            ],[
+            InlineKeyboardButton('🤠 My dev', url='https://t.me/A6rzuxpt69drdr6t9d5')
+            ],[
+            InlineKeyboardButton('⚡ Share me ⚡', url='https://t.me/share/url?url=https://t.me/Don_movie_robot')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -490,8 +494,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('source', callback_data='source')
             ],[
             InlineKeyboardButton('search movie', switch_inline_query_current_chat='')
-            ],[
-            InlineKeyboardButton('help & commands', callback_data='help')
+            ],
+            InlineKeyboardButton('help', callback_data='help')
             ],[
             InlineKeyboardButton('« Back', callback_data='start'),
             InlineKeyboardButton('Close ✗', callback_data='close_data')
